@@ -42,5 +42,11 @@ classifier.fit(X_train, y_train)
 y_pred = classifier.predict(X_test)
 
 
-print(y_pred)
+# submission
+submission = pd.read_csv("gender_submission.csv")
+submission["Survived"] = y_pred
+submission.to_csv("submission.csv", index=False)
+
+
+print("Success")
 
